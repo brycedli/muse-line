@@ -102,14 +102,29 @@ class ofPolyline {
     }
 
     //-----------------------
+    // getBezierPointAtPercent(percent) {
+    //     var nPoints = this.points.length;
+    //     var bezPerimeter = this.getBezierPerimeter();
+    //     if ((nPoints > 0) && (bezPerimeter > 0)) {
+    //         if (percent <= 0) {
+    //             return this.points[0]; // first point
+    //         } else if (percent >= 1) {
+    //             return this.points[nPoints - 1]; // last point
+    //         }
+    //         var inputLen = percent * bezPerimeter;
+    //         return this.getBezierPointAtLength(inputLen);
+    //     }
+    //     return createVector(0, 0);
+    // }
+
     getBezierPointAtPercent(percent) {
-        var nPoints = this.points.length;
+        var nBeziers = this.beziers.length;
         var bezPerimeter = this.getBezierPerimeter();
-        if ((nPoints > 0) && (bezPerimeter > 0)) {
+        if ((nBeziers > 0) && (bezPerimeter > 0)) {
             if (percent <= 0) {
-                return this.points[0]; // first point
+                return this.beziers[0].p1; // first point
             } else if (percent >= 1) {
-                return this.points[nPoints - 1]; // last point
+                return this.beziers[nBeziers - 1].p4; // last point
             }
             var inputLen = percent * bezPerimeter;
             return this.getBezierPointAtLength(inputLen);
