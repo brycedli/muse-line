@@ -10,7 +10,7 @@ function preload() {
     font = loadFont('https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZhrib2Bg-4.ttf')
 }
 function setup() {
-    createCanvas(windowWidth, windowHeight, WEBGL);
+    createCanvas(windowWidth, windowHeight);
     drawPolyline = new ofPolyline();
     randomPolyline = new ofPolyline();
 
@@ -33,16 +33,10 @@ function setup() {
 function draw() {
     background(220);
     textFont(font)
-    translate(-width/2,-height/2)
 
-    brush.set("charcoal", "red", 1)
-    
-    // brush.field("zigzag");
     noFill();
-    stroke(0, 128);
-    // strokeWeight(20);
-
     
+
     var resampleDraw = drawPolyline.getResampledByCount(count);
     // stroke(0);
     resampleDraw.calculateApprox(5);
@@ -50,68 +44,29 @@ function draw() {
     resampleDraw.recalculateBezierLengths();
     resampleDraw.calculateBezierResamples(count);
 
-    resampleDraw.displayCalculatedBeziers();
-    resampleRandom.displayCalculatedBeziers();
-    // let lerpPolyline = new ofPolyline();
-    let brushPoints = []
-    // brush.beginShape(1)
+    let lerpPolyline = new ofPolyline();
+
     for (let i = 0; i < resampleDraw.bezierResamples.length; i++) {
         
         var drawPoint = resampleDraw.bezierResamples[i];
         var randomPoint = resampleRandom.bezierResamples[i];
         let t = sin(millis()/500)/2 + 0.5;
         let finalPoint = p5.Vector.lerp(drawPoint, randomPoint, t);
-        // brush.vertex(finalPoint.x, finalPoint.y);
-        brushPoints.push([finalPoint.x,finalPoint.y]);
-        // lerpPolyline.add(finalPoint.x, finalPoint.y, 1);
+        lerpPolyline.add(finalPoint.x, finalPoint.y, 1);
     }
-    // brush.endShape();
-    brush.spline(brushPoints, 1);
-    
-    
 
-    // lerpPolyline.calculateApprox(5);
-    // lerpPolyline.calculateBeziers(lerpPolyline.approx);
-    // lerpPolyline.recalculateBezierLengths();
-    // lerpPolyline.calculateBezierResamples(count);
-    // print(lerpPolyline)
-    // lerpPolyline.displayCalculatedBeziers();
+    lerpPolyline.calculateApprox(5);
+    lerpPolyline.calculateBeziers(lerpPolyline.approx);
+    strokeWeight(20);
+    stroke(0, 128);
+    resampleDraw.displayCalculatedBeziers();
+    resampleRandom.displayCalculatedBeziers();
+    stroke(0);
+    lerpPolyline.displayCalculatedBeziers();
     noFill();
     stroke("blue");
     
-    // strokeWeight(20)
-   
     
-    // let lerpPolyline = new ofPolyline();
-    // for (var i = 0; i < min(resampleDraw.points.length, resampleRandom.points.length); i++) {
-    //     var drawPoint = resampleDraw.points[i];
-    //     var randomPoint = resampleRandom.points[i];
-    //     let t = sin(millis()/500)/2 + 0.5;
-    //     let finalPoint = p5.Vector.lerp(drawPoint, randomPoint, t);
-    //     // let noiseOffset = createVector(noise(finalPoint.x/width * 10)-0.5, noise(finalPoint.y/width * 10)-0.5).mult(1000);
-    //     let theta = noise(finalPoint.x/width * 5, finalPoint.y/width * 5) * TWO_PI;
-    //     let noiseOffset = p5.Vector.fromAngle(theta).mult(500 * sin(PI * t));
-    //     // let noiseOffset = createVector()
-    //     // finalPoint.add(noiseOffset);
-    //     lerpPolyline.add(finalPoint.x, finalPoint.y, 1);
-        
-    //     // brush.vertex(finalPoint.x, finalPoint.y);
-    // }
-   
-
-    
-    // lerpPolyline.calculateApprox(5);
-    // lerpPolyline.calculateBeziers(lerpPolyline.approx);
-    // lerpPolyline.recalculateBezierLengths();
-    // lerpPolyline.calculateBezierResamples(count);
-    // let brushPoints = []
-    // for (var i = 0; i < lerpPolyline.bezierResamples.length; i++) {
-    //     // print(lerpPolyline.bezierResamples[i].x)/
-    //     let p = [lerpPolyline.bezierResamples[i].x,lerpPolyline.bezierResamples[i].y];
-    //     brushPoints.push(p);
-    // }
-    // brush.spline(brushPoints, 1);
-    // lerpPolyline.displayCalculatedBeziers();
     stroke(0, 255, 0);
     fill(0);
     noStroke();
