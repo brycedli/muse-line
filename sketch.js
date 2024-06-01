@@ -1,10 +1,10 @@
 let drawPolyline; // Declare object
-let randomPolyline;
-let resampleRandom;
+let sourcePolyline;
+let resampleSource;
 let originalPoints = [];
 let font;
 
-var count = 50;
+var count = 100;
 
 function preload() {
     font = loadFont('https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZhrib2Bg-4.ttf')
@@ -12,21 +12,21 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     drawPolyline = new ofPolyline();
-    randomPolyline = new ofPolyline();
+    sourcePolyline = new ofPolyline();
 
     for (var i = 0; i < 10; i++) {
-        randomPolyline.add(width / 10 * i, random(height));
-        randomPolyline.calculateApprox(5);
-        randomPolyline.calculateBeziers(randomPolyline.approx);
-        randomPolyline.recalculateBezierLengths();
-        randomPolyline.calculateBezierResamples(count);
+        sourcePolyline.add(width / 10 * i, random(height));
+        
     }
-
-    resampleRandom = randomPolyline.getResampledByCount(count);
-    resampleRandom.calculateApprox(5);
-    resampleRandom.calculateBeziers(resampleRandom.approx);
-    resampleRandom.recalculateBezierLengths();
-    resampleRandom.calculateBezierResamples(count);
+    sourcePolyline.calculateApprox(5);
+    sourcePolyline.calculateBeziers(sourcePolyline.approx);
+    sourcePolyline.recalculateBezierLengths();
+    sourcePolyline.calculateBezierResamples(count);
+    resampleSource = sourcePolyline.getResampledByCount(count);
+    resampleSource.calculateApprox(5);
+    resampleSource.calculateBeziers(resampleSource.approx);
+    resampleSource.recalculateBezierLengths();
+    resampleSource.calculateBezierResamples(count);
 
 }
 
@@ -35,7 +35,7 @@ function draw() {
     textFont(font)
 
     noFill();
-    
+
 
     var resampleDraw = drawPolyline.getResampledByCount(count);
     // stroke(0);
@@ -47,10 +47,10 @@ function draw() {
     let lerpPolyline = new ofPolyline();
 
     for (let i = 0; i < resampleDraw.bezierResamples.length; i++) {
-        
+
         var drawPoint = resampleDraw.bezierResamples[i];
-        var randomPoint = resampleRandom.bezierResamples[i];
-        let t = sin(millis()/500)/2 + 0.5;
+        var randomPoint = resampleSource.bezierResamples[i];
+        let t = sin(millis() / 500) / 2 + 0.5;
         let finalPoint = p5.Vector.lerp(drawPoint, randomPoint, t);
         lerpPolyline.add(finalPoint.x, finalPoint.y, 1);
     }
@@ -60,13 +60,13 @@ function draw() {
     strokeWeight(20);
     stroke(0, 128);
     resampleDraw.displayCalculatedBeziers();
-    resampleRandom.displayCalculatedBeziers();
+    resampleSource.displayCalculatedBeziers();
     stroke(0);
     lerpPolyline.displayCalculatedBeziers();
     noFill();
     stroke("blue");
-    
-    
+
+
     stroke(0, 255, 0);
     fill(0);
     noStroke();
@@ -76,8 +76,8 @@ function draw() {
     var Lb = drawPolyline.getBezierPerimeter();
     text(nf(Lb, 0, 2), 30, 50);
 
-    
-   
+
+
 
 
 }
@@ -89,7 +89,7 @@ function mousePressed() {
     drawPolyline.recalculateBezierLengths();
     drawPolyline.calculateBezierResamples(count);
     drawPolyline.add(mouseX, mouseY);
-    // originalPoints.push(createVector(mouseX, mouseY));
+    originalPoints.push([mouseX, mouseY]);
 }
 
 function mouseDragged() {
@@ -98,12 +98,20 @@ function mouseDragged() {
     drawPolyline.recalculateBezierLengths();
     drawPolyline.calculateBezierResamples(count);
     drawPolyline.add(mouseX, mouseY);
-    // originalPoints.push(createVector(mouseX, mouseY));
-    
+    originalPoints.push([mouseX, mouseY]);
+
 }
 
 function keyPressed() {
-    drawPolyline.clear();
+    if (key == 'c') {
+        copyToClipboard();
+    }
+    if (key == 'v') {
+        pasteFromClipboard();
+    }
+    if (key == 'r') {
+        drawPolyline.clear();
+    }
 }
 
 function mouseReleased() {
@@ -112,7 +120,37 @@ function mouseReleased() {
 
 
 
+function copyToClipboard() {
+    let text = JSON.stringify(originalPoints);
+    navigator.clipboard.writeText(text).then(() => {
+        console.log('Coordinates copied to clipboard');
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
 
+
+function pasteFromClipboard() {
+    navigator.clipboard.readText().then(text => {
+        let pastedCoordinates = JSON.parse(text);
+        sourcePolyline.clear();
+        for (let i = 0; i < pastedCoordinates.length; i++) {
+            sourcePolyline.add(pastedCoordinates[i][0], pastedCoordinates[i][1]);
+        }
+        sourcePolyline.calculateApprox(5);
+        sourcePolyline.calculateBeziers(sourcePolyline.approx);
+        sourcePolyline.recalculateBezierLengths();
+        sourcePolyline.calculateBezierResamples(count);
+        resampleSource = sourcePolyline.getResampledByCount(count);
+        resampleSource.calculateApprox(5);
+        resampleSource.calculateBeziers(resampleSource.approx);
+        resampleSource.recalculateBezierLengths();
+        resampleSource.calculateBezierResamples(count);
+        console.log('Coordinates pasted from clipboard: ', pastedCoordinates);
+    }).catch(err => {
+        console.error('Failed to read clipboard contents: ', err);
+    });
+}
 //===========================================
 class ofPolyline {
     // Adapted from openFrameworks ofPolyline: 
