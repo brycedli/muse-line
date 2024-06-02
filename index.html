@@ -10,6 +10,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Curve</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.min.js"></script>
@@ -21,7 +22,9 @@
 
 <body>
   <script src="polyline.js"></script>
+  <script src="logo.js"></script>
   <script src="sketch.js"></script>
+  
   <div id="hero">
     <h1 id="title">Every story starts with an idea. Try drawing a scribble here!</h1>
     <div style="position:absolute; top:0; left:0; width: 100%; height: 160px; background: linear-gradient(rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);"></div>
@@ -31,13 +34,16 @@
     <div id="sketch-holder"  >
       <img id="cards" src="assets/cards.svg">
     </div>
+    <h1 id="tagline" class ="hidden">Putting thoughts into words. Creative AI tools designed just for kids.</h1>
     <div class="button-row" >
       <div id="product"><p>Product</p></div>
       <div id="story"><p>Our story</p></div>
       <div id="waitlist"><p>Join our waitlist</p></div>
     </div>
-
+    <div id="logo"></div>
   </div>
+  
+  
 </body>
 
 </html>
