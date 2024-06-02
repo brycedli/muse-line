@@ -117,8 +117,9 @@ canvas {
   position: absolute;
   right: 44px;
   top: 36px;
-  display: inline-flex;
-  align-items: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 32px;
 
 }
@@ -134,15 +135,29 @@ canvas {
 
 #product { 
   border-radius: 36px;
-  background: #66ACFF;
+  background: #BCDAFF;
+}
+
+#product p {
+  color: #160A9B;
 }
 
 #story {
   border-radius: 36px;
-  background: #FFBBE2;
+  background: #CFEF17;
+}
+
+#story p {
+  color: #00967D;
+
 }
 
 #waitlist{
   border-radius: 36px;
-  background: #FFD366;
+border: 4px solid #FFBBE2;
+background: var(--pinkk, #FF4F99);
+}
+
+#waitlist p {
+  color: #FDFFF8;
 }

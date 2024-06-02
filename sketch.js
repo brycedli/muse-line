@@ -1,5 +1,6 @@
 let drawPolyline; // Declare object
 let sourcePolyline;
+let fallingPolyline;
 
 let resampleSource;
 let originalPoints = [];
@@ -7,6 +8,10 @@ let font;
 
 var count = 100;
 let canvas;
+
+let clickedTime = -1;
+let clickLength = 1000;
+let showDrawing = true;
 
 function parsePathData(d) {
     const commands = d.match(/[A-Za-z][^A-Za-z]*/g);
@@ -146,49 +151,80 @@ const offsetY = (targetBoxHeight - scaledHeight) / 2 + targetBox.topLeft.y - bou
     print(sourcePolyline);
 }
 
+
 function draw() {
     // background(0);
     clear();
     textFont(font)
 
-
-
-
-    // var resampleDraw = drawPolyline.getResampledByCount(count);
-    // stroke(0);
-
-
     let lerpPolyline = new ofPolyline();
     // print(sourcePolyline.bezierResamples);
-    for (let i = 0; i < drawPolyline.bezierResamples.length; i++) {
-        var drawPoint = drawPolyline.bezierResamples[i];
-        var sourcePoint = sourcePolyline.bezierResamples[i];
-        
-        let t = sin(millis() / 500) / 2 + 0.5;
-        let finalPoint = p5.Vector.lerp(drawPoint, sourcePoint, t);
-        lerpPolyline.add(finalPoint.x, finalPoint.y, 1);
+    if (clickedTime > 0){
+        for (let i = 0; i < drawPolyline.bezierResamples.length; i++) {
+            var drawPoint = drawPolyline.bezierResamples[i];
+            var sourcePoint = sourcePolyline.bezierResamples[i];
+            
+            let t = constrain((millis()-clickedTime)/clickLength, 0, 1)
+            let easeOut = sin(PI/2*t);
+            let finalPoint = p5.Vector.lerp(drawPoint, sourcePoint, easeOut);
+            lerpPolyline.add(finalPoint.x, finalPoint.y, 1);
+        }
+        if (millis() - clickedTime > clickLength) {
+            if (showDrawing == false){
+                showDrawing = true;
+                drawPolyline.clear();
+                fallingPolyline = lerpPolyline;
+                // fallingPolyline = new Falling(lerpPolyline);
+            }
+            
+        }
     }
+    
     noFill();
 
     lerpPolyline.calculateApprox(5);
     lerpPolyline.calculateBeziers(lerpPolyline.approx);
     strokeWeight(16);
     stroke("#FF4F99");
-    drawPolyline.displayCalculatedBeziers();
-    sourcePolyline.displayCalculatedBeziers();
-    strokeWeight(20);
-    // stroke(24);
-    lerpPolyline.displayCalculatedBeziers();
+    if (showDrawing) {
+        drawPolyline.displayCalculatedBeziers();
+    }
+    else{
+        // strokeWeight(20);
+        // stroke(24);
+        lerpPolyline.displayCalculatedBeziers();
+    }
+    
+    // sourcePolyline.displayCalculatedBeziers();
+    
+    // stroke("blue")
+    let time = max(0, millis() - clickedTime - clickLength)/5000
+    if (fallingPolyline && showDrawing) {
+        
+        // push()
+        // let d = time * time;
+        // translate(0, d);
+        let c = color("#FF4F99")
+        c.setAlpha(255 - time * 255);
+        stroke(c);
+        fallingPolyline.displayCalculatedBeziers();
+        if (time > 1) {
+            fallingPolyline = null;
+        }
+        // pop()
+        // if (d > height){
+        //     fallingPolyline = null;
+        // }
+    }
 
 }
 
+
+
 function mousePressed() {
-    drawPolyline.calculateApprox(5);
-    drawPolyline.calculateBeziers(drawPolyline.approx);
-    drawPolyline.recalculateBezierLengths();
-    drawPolyline.calculateBezierResamples(count);
-    drawPolyline.add(mouseX, mouseY);
+    drawPolyline.clear();
     originalPoints.push([mouseX, mouseY]);
+    document.getElementById("title").style.display = "none";
 }
 
 function mouseDragged() {
@@ -201,13 +237,11 @@ function mouseDragged() {
 
 }
 
-// function mouseReleased(event) {
-//     print(event)
-//     drawPolyline.calculateApprox(5);
-//     drawPolyline.calculateBeziers(drawPolyline.approx);
-//     drawPolyline.recalculateBezierLengths();
-//     drawPolyline.calculateBezierResamples(count);
-// }
+function mouseReleased(event) {
+    print(event)
+    clickedTime = millis();
+    showDrawing = false;
+}
 
 function keyPressed() {
 
