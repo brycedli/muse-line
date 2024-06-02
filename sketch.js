@@ -5,10 +5,10 @@ let resampleSource;
 let originalPoints = [];
 let font;
 
-var count = 200;
+var count = 100;
+let canvas;
 
-
-function parsePathData(d, offset, scale) {
+function parsePathData(d) {
     const commands = d.match(/[A-Za-z][^A-Za-z]*/g);
     let currentPos = [0, 0];
     const bezierCurves = [];
@@ -30,10 +30,10 @@ function parsePathData(d, offset, scale) {
         //   [x, y]            // p4: end point
         // ]);
         bezierCurves.push([
-            createVector(currentPos[0], currentPos[1]).add(offset).mult(scale),       // p1: start point
-            createVector(x1, y1).add(offset).mult(scale),         // p2: first control point
-            createVector(x2, y2).add(offset).mult(scale),         // p3: second control point
-            createVector(x, y).add(offset).mult(scale)          // p4: end point
+            createVector(currentPos[0], currentPos[1]),       // p1: start point
+            createVector(x1, y1),         // p2: first control point
+            createVector(x2, y2),         // p3: second control point
+            createVector(x, y)         // p4: end point
           ]);
         currentPos = [x, y];
       } else if (type === 'L') {
@@ -55,23 +55,77 @@ var bezierPoints;
 function preload() {
     font = loadFont('https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZhrib2Bg-4.ttf')
 }
+let minX = Infinity, minY = Infinity;
+let maxX = -Infinity, maxY = -Infinity;
+
+
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-    bezierPoints = parsePathData(pathData, createVector(width / 2, height / 2), 0.2);
+    canvas = createCanvas(windowWidth, windowHeight);
+    canvas.parent('sketch-holder');
+    bezierPoints = parsePathData(pathData, createVector(width, height), 0.2);
     // console.log(bezierPoints);
     drawPolyline = new ofPolyline();
     sourcePolyline = new ofPolyline();
 
-    // for (var i = 0; i < 10; i++) {
-    //     sourcePolyline.add(width / 10 * i, random(height));
+    let coords = [];
+    for (let i = 0; i < bezierPoints.length; i++) {
 
-    // }
+        coords = coords.concat(bezierPoints[i]);
+    }
+
+    for (const coord of coords) {
+        if (coord.x < minX) minX = coord.x;
+        if (coord.x > maxX) maxX = coord.x;
+        if (coord.y < minY) minY = coord.y;
+        if (coord.y > maxY) maxY = coord.y;
+    }
+
+    const targetBox = {
+        topLeft: {x: width * 0.25, y: height * 0.25},
+        bottomRight: {x: width * 0.75, y: height * 0.75}
+    };
+    
+    const boundingBox = {
+        topLeft: {x: minX, y: minY},
+        bottomRight: {x: maxX, y: maxY}
+    };
+    
+    const boundingBoxWidth = boundingBox.bottomRight.x - boundingBox.topLeft.x;
+const boundingBoxHeight = boundingBox.bottomRight.y - boundingBox.topLeft.y;
+
+const targetBoxWidth = targetBox.bottomRight.x - targetBox.topLeft.x;
+const targetBoxHeight = targetBox.bottomRight.y - targetBox.topLeft.y;
+
+const scale = Math.min(targetBoxWidth / boundingBoxWidth, targetBoxHeight / boundingBoxHeight);
+
+const scaledWidth = boundingBoxWidth * scale;
+const scaledHeight = boundingBoxHeight * scale;
+
+const offsetX = (targetBoxWidth - scaledWidth) / 2 + targetBox.topLeft.x - boundingBox.topLeft.x * scale;
+const offsetY = (targetBoxHeight - scaledHeight) / 2 + targetBox.topLeft.y - boundingBox.topLeft.y * scale;
+
+    const transform = {
+        scale: scale,
+        // offset: {x: offsetX, y: offsetY}
+        offset: createVector(offsetX, offsetY)
+    };
+    
+    console.log(transform);
+    
+    // Transform the original points
+    const transformedCoords = coords.map(coord => ({
+        x: coord.x * scale + offsetX,
+        y: coord.y * scale + offsetY
+    }));
+
+
+    print(minX, minY, maxX, maxY);
     let beziers = [];
     for (let i = 0; i < bezierPoints.length; i++) {
-        let p0 = bezierPoints[i][0];
-        let p1 = bezierPoints[i][1];
-        let p2 = bezierPoints[i][2];
-        let p3 = bezierPoints[i][3];
+        let p0 = bezierPoints[i][0].mult(transform.scale).add(transform.offset);
+        let p1 = bezierPoints[i][1].mult(transform.scale).add(transform.offset);
+        let p2 = bezierPoints[i][2].mult(transform.scale).add(transform.offset);
+        let p3 = bezierPoints[i][3].mult(transform.scale).add(transform.offset);
         
         let quadBezier = new BezierQuad(p0, p1, p2, p3);
         beziers.push(quadBezier);
@@ -93,7 +147,8 @@ function setup() {
 }
 
 function draw() {
-    background(220);
+    // background(0);
+    clear();
     textFont(font)
 
 
@@ -117,47 +172,17 @@ function draw() {
 
     lerpPolyline.calculateApprox(5);
     lerpPolyline.calculateBeziers(lerpPolyline.approx);
-    strokeWeight(10);
-    stroke(0, 128);
+    strokeWeight(16);
+    stroke("#FF4F99");
     drawPolyline.displayCalculatedBeziers();
     sourcePolyline.displayCalculatedBeziers();
     strokeWeight(20);
-    stroke(0);
+    // stroke(24);
     lerpPolyline.displayCalculatedBeziers();
-    noFill();
-    stroke("blue");
-
-
-    stroke(0, 255, 0);
-    fill(0);
-    noStroke();
-    var L = drawPolyline.getPerimeter();
-    text(nf(L, 0, 2), 30, 30);
-
-    var Lb = drawPolyline.getBezierPerimeter();
-    text(nf(Lb, 0, 2), 30, 50);
-
-    // for (let i = 0; i < drawPolyline.beziers.length; i++) {
-    //     let p1 = drawPolyline.beziers[i].p1;
-    //     let p2 = drawPolyline.beziers[i].p2;
-    //     let p3 = drawPolyline.beziers[i].p3;
-    //     let p4 = drawPolyline.beziers[i].p4;
-    //     fill(255);
-    //     circle(p1.x, p1.y, 10);
-    //     fill(255 * 3/4);
-    //     circle(p2.x, p2.y, 10);
-    //     fill(255 * 2/4);
-    //     circle(p3.x, p3.y, 10);
-    //     fill(255 * 1/4);
-    //     circle(p4.x, p4.y, 10);
-    // }
-
-
 
 }
 
 function mousePressed() {
-    print(drawPolyline)
     drawPolyline.calculateApprox(5);
     drawPolyline.calculateBeziers(drawPolyline.approx);
     drawPolyline.recalculateBezierLengths();
@@ -176,6 +201,14 @@ function mouseDragged() {
 
 }
 
+// function mouseReleased(event) {
+//     print(event)
+//     drawPolyline.calculateApprox(5);
+//     drawPolyline.calculateBeziers(drawPolyline.approx);
+//     drawPolyline.recalculateBezierLengths();
+//     drawPolyline.calculateBezierResamples(count);
+// }
+
 function keyPressed() {
 
     if (key == 'r') {
@@ -183,8 +216,6 @@ function keyPressed() {
     }
 }
 
-function mouseReleased() {
 
-}
 
 

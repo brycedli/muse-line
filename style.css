@@ -1,12 +1,148 @@
-html, body {
-    margin: 0;
-    padding: 0;
-  }
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* custom css here */
+
+.plus-jakarta-sans {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  /* font-style: normal; */
+}
+
+body {
+  text-align: center;
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+#hero {
+  user-select: none;
+  background: radial-gradient(circle, #FDE3FF 0%, #FDFFF8 100%);
+}
+
+#hero h1 {
+  position:absolute;
+  left: 80px;
+  right: 80px;
+  color: var(--pinkk, #FF4F99);
+  text-align: center;
+  font-family: "Plus Jakarta Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  z-index: 2;
+  top: 50%;
+    transform: translateY(-50%);
+}
+canvas {
   
-  canvas {
-    display: block;
-  }
+	/* display: block; */
+	position: fixed;
+	left: 0;
+	top: 0;
   
-  * {
-      font-family: sans-serif;
-  }
+	pointer-events: auto;
+	/* z-index: 10; */
+}
+
+
+#sketch-holder{
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events:auto;
+	height: 100vh;
+  
+}
+
+#cards {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  
+}
+
+.button-row {
+  position: absolute;
+  right: 44px;
+  top: 36px;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 32px;
+
+}
+
+.button-row div {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  
+}
+
+#product { 
+  border-radius: 36px;
+  background: #66ACFF;
+}
+
+#story {
+  border-radius: 36px;
+  background: #FFBBE2;
+}
+
+#waitlist{
+  border-radius: 36px;
+  background: #FFD366;
+}
