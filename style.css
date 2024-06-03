@@ -479,8 +479,8 @@ canvas {
 }
 
 .product-2 * .product-image {
-  width: 834px;
-  height: 547.591px;
+  width: 60%;
+  aspect-ratio: 1.6;
   transform: rotate(1deg);
   flex-shrink: 0;
   border-radius: 20px;
@@ -507,8 +507,8 @@ canvas {
 }
 
 .product-3 * .product-image {
-  width: 652px;
-  height: 428px;
+  width: 40%;
+  aspect-ratio: 1.6;
   flex-shrink: 0;
   transform: rotate(0deg);
 
@@ -540,8 +540,8 @@ canvas {
 }
 
 .product-4 * .product-image {
-  width: 834px;
-  height: 547.416px;
+  width: 60%;
+  aspect-ratio: 1.6;
   transform: rotate(1deg);
   margin-right: -48px;
   flex-shrink: 0;
