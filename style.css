@@ -304,13 +304,15 @@ canvas {
   color: #00967d;
 }
 
-#waitlist {
+#waitlist,
+.waitlist-btn {
   border-radius: 36px;
   border: 4px solid #ffbbe2;
   background: var(--pinkk, #ff4f99);
 }
 
-#waitlist p {
+#waitlist p,
+.waitlist-btn p {
   color: #fdfff8;
 }
 
@@ -347,9 +349,10 @@ canvas {
 
 .product-blurb {
   text-align: center;
-  width: 70%;
+  width: 90%;
   background: url('assets/email_backdrop.png') transparent 0% / contain
     no-repeat;
+  background-position: center;
   height: 600px;
   display: flex;
   flex-direction: column;
@@ -366,11 +369,41 @@ canvas {
 
 .product-notepad {
   position: relative;
-  top: -110px;
+  top: -180px;
+  margin-bottom: -180px;
 }
 
-.product-blurb p {
-  width: 80%;
+.waitlist-input-container {
+  padding-top: 40px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.waitlist-input {
+  padding: 8px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  color: #936572;
+  font-weight: 300;
+  border: 2px solid #93657280;
+  border-radius: 4px;
+  width: 70%;
+}
+
+.waitlist-input::placeholder {
+  color: #936572df;
+}
+
+.waitlist-btn {
+  margin-left: 16px;
+  padding: 8px 16px;
+  font-size: 18px;
+  font-family: 'Plus Jakarta Sans';
+}
+
+.product-blurb > p {
+  width: 65%;
   font-size: 32px;
   line-height: 1.4;
   color: #7a4051;
