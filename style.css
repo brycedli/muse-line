@@ -248,9 +248,11 @@ canvas {
 }
 
 .product {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-align-items:center;
+align-items:start;
+justify-items: center;
   /* padding: 28px; */
   background: rgba(253, 255, 248, 1);
   /* font-style: normal; */
@@ -259,8 +261,8 @@ align-items:center;
 }
 
 .product * h1{
-  font-size: 32px;
   width: 100%;
+  font-size: 32px;
   font-family: "Plus Jakarta Sans";
   text-align: center;
 }
@@ -290,6 +292,9 @@ align-items:center;
 
 /* .product-1, .product-2, .product-3{ */
 .product > div{
+  min-width: 900px;
+
+  align-self: center;
   display: flex;
   padding: 20px 160px;
   flex-direction: column;
@@ -367,7 +372,6 @@ align-items:center;
   display: flex;
 justify-content: center;
 align-items: center;
-max-width: 1200px;
 
 }
 
@@ -443,6 +447,7 @@ box-shadow: 0px 4px 10px 0px rgba(0, 150, 125, 0.10);
 }
 
 .product-3 .product-info {
+  width: 30%;
   border-radius: 16px;
 background: #FEFFDB;
 box-shadow: 0px 4px 10px 0px rgba(255, 138, 0, 0.10);
@@ -480,6 +485,7 @@ box-shadow: 0px 4px 10px 0px rgba(255, 138, 0, 0.10);
 }
 
 .product-4 .product-info {
+  
   border-radius: 16px;
 background: #F1FFCA;
 box-shadow: 0px 4px 10px 0px rgba(255, 138, 0, 0.10);
@@ -520,5 +526,41 @@ flex-shrink: 0;
   }
   .button-row{
     display: none;
+  }
+  .product > div{
+    padding: 20px;
+  }
+
+  .product-info-container {
+    flex-direction:column-reverse;
+    
+
+    /* flex-direction: column; */
+
+  
+  }
+
+  .product * video {
+    position:relative;
+
+    width: 180%;
+    height: auto;
+    /* object-fit:fill; */
+    left: 0%;
+    top: 0%;
+    /* top: 50%; */
+
+    transform: translate(-25%, -25%);
+  }
+
+  .product-1 * .product-image {
+    overflow: hidden;
+    transform: rotate(0);
+    box-shadow: none;
+    /* transform: none; */
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-left: 0;
   }
 }
