@@ -15,8 +15,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -24,32 +25,120 @@
   <script src="polyline.js"></script>
   <script src="logo.js"></script>
   <script src="sketch.js"></script>
-  
+
   <div id="hero">
     <h1 id="title">Every story starts with an idea. Try drawing a scribble here!</h1>
-    <div style="position:absolute; top:0; left:0; width: 100%; height: 160px; background: linear-gradient(rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);"></div>
-    <div style="position:absolute; bottom:0; left:0; width: 100%; height: 160px; background: linear-gradient(0deg, rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);"></div>
-    <div style="position:absolute; bottom:0; left:0; height: 100%; width: 160px; background: linear-gradient(90deg, rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);"></div>
-    <div style="position:absolute; bottom:0; right:0; height: 100%; width: 160px; background: linear-gradient(-90deg, rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);"></div>
-    <div id="sketch-holder"  >
+    <div
+      style="position:absolute; top:0; left:0; width: 100%; height: 160px; background: linear-gradient(rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);">
+    </div>
+    <div
+      style="position:absolute; bottom:0; left:0; width: 100%; height: 160px; background: linear-gradient(0deg, rgba(253, 255, 248, 1) 25%, rgba(253, 255, 248, 0.00) 100%);">
+    </div>
+    <div
+      style="position:absolute; bottom:0; left:0; height: 100%; width: 160px; background: linear-gradient(90deg, rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);">
+    </div>
+    <div
+      style="position:absolute; bottom:0; right:0; height: 100%; width: 160px; background: linear-gradient(-90deg, rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);">
+    </div>
+    <div id="sketch-holder">
       <img id="cards" src="assets/cards.svg">
     </div>
-    <h1 id="tagline" class ="hidden">Putting thoughts into words. Creative AI tools designed just for kids.</h1>
-    <div class="button-row" >
-      <div id="product"><p>Product</p></div>
-      <div id="story"><p>Our story</p></div>
-      <div id="waitlist"><p>Join our waitlist</p></div>
+    <h1 id="tagline" class="hidden">Putting thoughts into words. Creative AI tools designed just for kids.</h1>
+    <div class="button-row">
+      <div id="product">
+        <p>Product</p>
+      </div>
+      <div id="story">
+        <p>Our story</p>
+      </div>
+      <div id="waitlist">
+        <p>Join our waitlist</p>
+      </div>
     </div>
     <div id="logo"></div>
   </div>
-  <!-- <div class="product">
-    <div class="product-text">
-      <h2>Build a habit of life-long reading and making, in the age of AI</h2>
-      <p>86% of kids say their favorite books are the ones they picked out. We’re going a step further: What if you could truly dream up any story you want? We take in kids’ typed or voice-transcribed ideas and craft them into engaging stories that never have to end, and that they’ll never want to put down. </p>
+  <div class="product">
+    <div class="product-1">
+      <h1>Build a habit of life-long reading and making, <span class="bold">in the age of AI</span></h1>
+      <div class="product-info-container">
+
+        <div class="product-info">
+          <h2>86% of kids</h2>
+          <p class="smaller">say their favorite books are the ones they picked out.</p>
+          <h2 class="thinner">We’re going a step further: What if you could truly dream up any story you want?</h2>
+          <p>We take in kids’ typed or voice-transcribed ideas and craft them into engaging stories that never have to
+            end, and that they’ll never want to put down. </p>
+        </div>
+        <div class="product-image">
+          <video autoplay muted loop>
+            <source src="assets/videos/voice.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
     </div>
-  </div> -->
-  
-  
+    <div class="product-2">
+      <h1><span class="bold">Diverse</span> storytelling is the new norm. </h1>
+      <div class="product-info-container">
+        <div class="quote-container">
+          <h2>“Make the hero of the story an Asian American girl with a super sidekick, like my 姥姥. We are on the search
+            for our family’s long lost magical 饺子 recipe. ”</h2>
+          <div class="product-info">
+            <p>The worlds imagined through Muse defy more than just the laws of physics, but also the types of
+              characters, families, and challenges that dominated the media we grew up used to seeing. </p>
+          </div>
+        </div>
+
+        <div class="product-image">
+
+        </div>
+      </div>
+    </div>
+    <div class="product-3">
+      <h1>Healthy experiences with technology</h1>
+      <div class="product-info-container" style="flex-direction: row-reverse;">
+
+        <div class="product-info">
+          <p>Research-driven design helped us decide the best colors, typography, and layouts to craft the most
+            comfortable and friendly iPad reading experience for a range of kids’ ages and reading levels. </p>
+        </div>
+        <div class="product-image" style="margin-right: -24px;">
+          <video autoplay muted loop>
+            <source src="assets/videos/flipping.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+      </div>
+      <div class="product-info-container">
+
+        <div class="product-info">
+          <p>Read aloud features available for littler ones learning to read.  </p>
+        </div>
+        <div class="product-image" style="margin-left: -48px; width: 669.367px; height: 303.664px; box-shadow: none">
+          <video autoplay muted loop>
+            <source src="assets/videos/read.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+      </div>
+    </div>
+    <div class="product-4">
+      <h1><span class="bold">Diverse</span> storytelling is the new norm. </h1>
+      <div class="product-info-container">
+          <div class="product-info">
+            <h2>The future of learning is co-creation with generative AI.</h2>
+            <p>Start understanding how generative AI works and how to meaningfully play with it, through Muse’s carefully designed and regulated interfaces and environment.  </p>
+          </div>
+        <div class="product-image">
+
+        </div>
+      </div>
+    </div>
+
+
+
 </body>
 
 </html>
