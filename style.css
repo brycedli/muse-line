@@ -67,7 +67,7 @@ body {
 #logo {
   position: fixed;
   left: 36px;
-  top: 12px;
+  top: -12px;
   z-index: 10;
 }
 
