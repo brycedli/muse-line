@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const svgContainer = document.getElementById('logo');
         svgContainer.innerHTML = '';
         const newImage = preloadedImages[currentIndex].cloneNode(true);
-        newImage.classList.add('bouncy');
+        // newImage.classList.add('bouncy');
         svgContainer.appendChild(newImage);
         currentIndex = (currentIndex + 1) % preloadedImages.length;
     }
