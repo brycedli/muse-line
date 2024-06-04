@@ -179,6 +179,8 @@ body {
   overflow: hidden;
 }
 
+
+
 h1 {
   color: var(--pinkk, #ff4f99);
 
@@ -211,9 +213,17 @@ h2 {
   right: 80px;
   text-align: center;
   z-index: 2;
-  top: 50%;
+  top: 80%;
   transform: translateY(-50%);
   text-align: center;
+}
+
+#gesture {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: darken;
 }
 
 #tagline {
@@ -341,6 +351,7 @@ canvas {
 }
 
 .product * p {
+  line-height: 132%;
   font-size: 18px;
   font-family: 'Plus Jakarta Sans';
   font-style: normal;
@@ -445,7 +456,7 @@ canvas {
   font-variation-settings: 'wght' 800;
 }
 .product-info {
-  width: 350px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   border-radius: 16px;
@@ -471,18 +482,6 @@ canvas {
   font-size: 20px;
 }
 
-.product-1 * .product-image {
-  flex: 1;
-  width: 100%;
-  aspect-ratio: 1.6;
-  transform: rotate(-1deg);
-  flex-shrink: 0;
-  /* background: rgba(231, 242, 255, 0.5); */
-  /* box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); */
-  border-radius: 16px;
-  margin-left: -48px;
-}
-
 .product * video {
   position: absolute;
   top: 50%;
@@ -495,6 +494,23 @@ canvas {
   transform: translate(-50%, -50%);
 }
 
+.product-1 * .product-image {
+  flex: 1;
+  aspect-ratio: 1.6;
+  transform: rotate(0deg);
+  flex-shrink: 0;
+  overflow:hidden;
+  /* background: rgba(231, 242, 255, 0.5); */
+  /* box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05); */
+  border-radius: 16px;
+  margin-left: -64px;
+}
+
+.product-1 * video {
+  top: 30%;
+}
+
+
 .product-info-container {
   display: flex;
   justify-content: center;
@@ -502,7 +518,7 @@ canvas {
 }
 
 .product-2 p {
-  color: #ff4f99;
+  color: #FF644F;
 }
 
 .product-2 .product-info-container {
@@ -510,7 +526,7 @@ canvas {
 }
 
 .product-2 h1 {
-  color: #ff4f99;
+  color: #FF644F;
 }
 
 .quote-container {
@@ -518,33 +534,41 @@ canvas {
   flex-direction: column;
   /* justify-content: right; */
   align-items: flex-end;
-  gap: 16px;
-  width: 350px;
+  gap: 32px;
+  width: 300px;
 }
 
 .product-2 * h2 {
   /* width: 60%; */
-  margin-left: 80px;
-  color: var(--pinkk, #ff4f99);
-  font-family: 'Times New Roman';
+  margin-left: 60px;
+  margin-right: -40px;
+  color: #E25D47;
+
+  font-family: "IBM Plex Sans";
+  font-size: 24px;
   font-style: italic;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: normal;
-}
+  /* font-weight: 500; */
+  font-variation-settings: 'wght' 500;
+  line-height: 137.156%;
+  }
+
 .product-2 .bold {
   font-variation-settings: 'wght' 800;
-  color: #eb0063;
+  /* color: #eb0063; */
 }
+
+
 .product-2 .product-info {
+  /* width: 400px; */
   border-radius: 16px;
-  background: #ffeffa;
+  background: #FFF9F8;
   box-shadow: 0px 4px 10px 0px rgba(0, 150, 125, 0.1);
 }
 
 .product-2 * .product-image {
-  width: 60%;
-  aspect-ratio: 1.6;
+  flex: 1;
+  width: 100%;
+  aspect-ratio: 1.52;
   transform: rotate(1deg);
   flex-shrink: 0;
   border-radius: 20px;
@@ -554,24 +578,29 @@ canvas {
   margin-right: -24px;
 }
 
-.product-3 h1 {
-  color: #ffa800;
+.product-3 h1, h2 {
+  color: #7E64DD;
 }
 
+
 .product-3 p {
+  
   font-variation-settings: 'wght' 400;
-  color: #ffa800;
+  color: #7E64DD;
 }
 
 .product-3 .product-info {
-  width: 30%;
+  width: 300px;
   border-radius: 16px;
-  background: #feffdb;
+  background: #FFFFEA;
   box-shadow: 0px 4px 10px 0px rgba(255, 138, 0, 0.1);
 }
 
+
+
 .product-3 * .product-image {
-  width: 40%;
+  flex: 1;
+  width: 100%;
   aspect-ratio: 1.6;
   flex-shrink: 0;
   transform: rotate(0deg);
@@ -598,6 +627,7 @@ canvas {
 }
 
 .product-4 .product-info {
+
   border-radius: 16px;
   background: #f1ffca;
   box-shadow: 0px 4px 10px 0px rgba(255, 138, 0, 0.1);
@@ -646,7 +676,7 @@ canvas {
     /* flex-direction: column; */
   }
 
-  .product * video {
+  .product-1 * video {
     position: relative;
 
     width: 180%;
@@ -658,14 +688,15 @@ canvas {
 
     transform: translate(-25%, -25%);
   }
-
+  .product-1 * .product-info {
+    width: 100%;
+  }
   .product-1 * .product-image {
     overflow: hidden;
     transform: rotate(0);
     box-shadow: none;
     /* transform: none; */
-    width: 100%;
-    height: auto;
+    
     margin-right: 0;
     margin-left: 0;
   }

@@ -16,8 +16,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -42,6 +43,9 @@
     </div>
     <div id="sketch-holder">
       <img id="cards" src="assets/cards.svg">
+      <video id="gesture" autoplay muted loop>
+        <source src="assets/videos/gesture.mp4" type="video/mp4">
+      </video>
     </div>
     <h1 id="tagline" class="hidden">Putting thoughts into words. Creative AI tools designed just for kids.</h1>
     <div class="button-row">
@@ -92,7 +96,7 @@
       <h1><span class="bold">Diverse</span> storytelling is the new norm. </h1>
       <div class="product-info-container">
         <div class="quote-container">
-          <h2>“Make the hero of the story an Asian American girl with a super sidekick, like my 姥姥. We are on the search
+          <h2>“Make the hero of the story an Asian American girl with a super sidekick, <span class="bold">like my 姥姥.</span> We are on the search
             for our family’s long lost magical 饺子 recipe. ”</h2>
           <div class="product-info">
             <p>The worlds imagined through Muse defy more than just the laws of physics, but also the types of
@@ -123,10 +127,10 @@
       </div>
       <div class="product-info-container">
 
-        <div class="product-info">
-          <p>Read aloud features available for littler ones learning to read.  </p>
+        <div class="product-info" style="position: relative; top: 60px;">
+          <h2>Read aloud features available for littler ones learning to read.  </h2>
         </div>
-        <div class="product-image" style="margin-left: -48px; width: 35%; aspect-ratio: 1.8; box-shadow: none">
+        <div class="product-image" style=" margin-left: -48px; width: 35%; aspect-ratio: 2.2; box-shadow: none">
           <video autoplay muted loop>
             <source src="assets/videos/read.mp4" type="video/mp4">
             Your browser does not support the video tag.
