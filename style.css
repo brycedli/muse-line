@@ -382,6 +382,7 @@ canvas {
   position: relative;
   top: -180px;
   margin-bottom: -180px;
+  width: 70%;
 }
 
 .waitlist-input-container {
