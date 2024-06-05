@@ -51,19 +51,20 @@
     </div>
     <h1 id="tagline" class="hidden">Putting thoughts into words. Creative AI tools designed just for kids.</h1>
     <div class="button-row">
+      <div id="waitlist-btn">
+        <p>Join our waitlist</p>
+      </div>
       <div id="product-btn">
         <p>Product</p>
       </div>
       <div id="story-btn">
         <p>Our story</p>
       </div>
-      <div id="waitlist-btn">
-        <p>Join our waitlist</p>
-      </div>
+      
     </div>
     <div id="logo"></div>
   </div>
-
+  <div id="scroll-waitlist"></div>
   <div class="waitlist-container">
     <h3>MUSE REIMAGINES HOW KIDS SPEND THEIR TIME WITH TECHNOLOGY.</h3>
     <div class="mockup-container">
@@ -83,18 +84,21 @@
     <div class="product-blurb">
       <h1>Come join us on the app store on June 15</h1>
       <div class="waitlist-input-container">
-        <input type="email" name="email" placeholder="Email address" class="waitlist-input">
-        <div class="waitlist-btn-input">
+        <input type="email" id="emailInput" name="email" placeholder="Email address" class="waitlist-input">
+        <div id="waitlist-send" class="waitlist-btn-input">
           <p>Join our waitlist</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="product">
+  <div id="scroll-product"></div>
+  <div class="product" >
 
     <div id="product-1">
+      
       <h1>Build a habit of life-long reading and making, <span class="bold">in the age of AI</span></h1>
       <div class="product-info-container">
+        
         <div class="product-info">
           <h2>86% of kids</h2>
           <p class="smaller">say their favorite books are the ones they picked out.</p>
@@ -102,7 +106,7 @@
           <p>We take in kids’ typed or voice-transcribed ideas and craft them into engaging stories that <span
               class="pbold">never have to
               end,</span> and that they’ll <span class="pbold">never want to put down.</span></p>
-        </div> 
+        </div>
         <div class="product-image">
           <video autoplay muted loop>
             <source src="assets/videos/voice.mp4" type="video/mp4">
@@ -123,9 +127,9 @@
               characters, families, and challenges that dominated the media we grew up used to seeing. </p>
           </div>
         </div>
-
         <div class="product-image">
-
+          <div class="background" id="background-2"></div>
+          
         </div>
       </div>
     </div>
@@ -136,8 +140,9 @@
         <div class="product-info">
           <p>Research-driven design helped us decide the best colors, typography, and layouts to craft the most
             comfortable and friendly iPad reading experience for a range of kids’ ages and reading levels. </p>
+            <!-- <div class="background" id="background-3"></div> -->
         </div>
-        <div class="product-image" >
+        <div class="product-image">
           <video autoplay muted loop>
             <source src="assets/videos/flipping.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -172,33 +177,36 @@
         </div>
       </div>
     </div>
-    
+
   </div>
+  <div id="scroll-story"></div>
   <div id="story">
-      <div class="story-headline">
-        <img src="assets/story-icon.svg">
-        <h1>Our Story</h1>
-      </div>
-      <p>We are three friends and recent graduates of Carnegie Mellon University, with degrees spanning Interaction
-        Design, Information Systems, Computer Science, Digital Humanities, and Human-Computer Interaction. With a
-        motivation to help humanity toward healthier and more valuable relationships with technology, we passionately
-        and carefully designed Muse — an app for kids to meaningfully engage with technology through active creativity,
-        worldbuilding, and immersive reading experiences. </p>
-      <img src="assets/long-profiles.svg">
-      <p><span class="michelle">Michelle</span> is from Ellicott City, Maryland; <span class="bryce">Bryce</span> from Los Altos, California; and <span class="emily">Emily</span> from Fremont, California.
-        We come from backgrounds in teaching, visual arts, working with public school systems, and most importantly,
-        working with kids. </p>
-
-      <p>Growing up in first-generation immigrant households, we know how the paths towards advanced literacy can be
-        challenging without robust support systems. Therefore, the belief in the value of fun and engaging books
-        accessible from a young age is one we hold personally. Our mission is to make Muse this support system for any
-        child; Muse is a personal storyteller, creative helping-hand, and knowledgable source of inspiration — all in
-        one.</p>
-
-      <b>More on why and how we are building Muse: <a href="https://emily-muse.medium.com/">read our blog!</a></b>
-      <b>Let’s chat! Send an email to <a href="mailto:hello@joinmuse.ai">hello@joinmuse.ai 📬</a></b>
-      </p>
+    <div class="story-headline">
+      <img src="assets/story-icon.svg">
+      <h1>Our Story</h1>
     </div>
+    <p>We are three friends and recent graduates of Carnegie Mellon University, with degrees spanning Interaction
+      Design, Information Systems, Computer Science, Digital Humanities, and Human-Computer Interaction. With a
+      motivation to help humanity toward healthier and more valuable relationships with technology, we passionately
+      and carefully designed Muse — an app for kids to meaningfully engage with technology through active creativity,
+      worldbuilding, and immersive reading experiences. </p>
+    <img src="assets/long-profiles.svg" class="desktop">
+    <img src="assets/profiles-mobile.svg" class="mobile">
+    <p><span class="michelle">Michelle</span> is from Ellicott City, Maryland; <span class="bryce">Bryce</span> from Los
+      Altos, California; and <span class="emily">Emily</span> from Fremont, California.
+      We come from backgrounds in teaching, visual arts, working with public school systems, and most importantly,
+      working with kids. </p>
+
+    <p>Growing up in first-generation immigrant households, we know how the paths towards advanced literacy can be
+      challenging without robust support systems. Therefore, the belief in the value of fun and engaging books
+      accessible from a young age is one we hold personally. Our mission is to make Muse this support system for any
+      child; Muse is a personal storyteller, creative helping-hand, and knowledgable source of inspiration — all in
+      one.</p>
+
+    <b>More on why and how we are building Muse: <a href="https://emily-muse.medium.com/">read our blog!</a></b>
+    <b>Let’s chat! Send an email to <a href="mailto:hello@joinmuse.ai">hello@joinmuse.ai 📬</a></b>
+    </p>
+  </div>
 </body>
 
 </html>

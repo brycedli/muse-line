@@ -20,6 +20,10 @@ let current = 0;
 // var bezierPoints;
 var bezierPoints;
 
+
+
+
+
 function preload() {
     font = loadFont('https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZhrib2Bg-4.ttf')
 }
@@ -54,7 +58,6 @@ let maxX = -Infinity, maxY = -Infinity;
         }
     ]
     let path = pathData[index%pathData.length];
-    print(index%pathData.length);
     bezierPoints = parsePathData(path.data);
     drawPolyline = new ofPolyline();
     sourcePolyline = new ofPolyline();
@@ -126,7 +129,6 @@ function draw() {
     textFont(font)
 
     let lerpPolyline = new ofPolyline();
-    // print(sourcePolyline.bezierResamples);
     if (drawingState == "animate" && clickedTime != -1 && drawPolyline.points.length > minPoints) {
         for (let i = 0; i < drawPolyline.bezierResamples.length; i++) {
             var drawPoint = drawPolyline.bezierResamples[i];
@@ -177,6 +179,7 @@ function draw() {
 
 
 function mousePressed() {
+
     current = current + 1;
     regenerateSourceCurve(current);
 
@@ -191,6 +194,7 @@ function mousePressed() {
 }
 
 function mouseDragged() {
+
     drawPolyline.calculateApprox(5);
     drawPolyline.calculateBeziers(drawPolyline.approx);
     drawPolyline.recalculateBezierLengths();
@@ -201,9 +205,8 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-    
+
     if (drawPolyline.points.length > minPoints) {
-        print("approx length: " + width / 1000);
         drawPolyline.calculateApprox(width / 1000);
         drawPolyline.calculateBeziers(drawPolyline.approx);
         drawPolyline.recalculateBezierLengths();
