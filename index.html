@@ -17,8 +17,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -49,41 +51,58 @@
     </div>
     <h1 id="tagline" class="hidden">Putting thoughts into words. Creative AI tools designed just for kids.</h1>
     <div class="button-row">
-      <div id="product">
+      <div id="product-btn">
         <p>Product</p>
       </div>
-      <div id="story">
+      <div id="story-btn">
         <p>Our story</p>
       </div>
-      <div id="waitlist">
+      <div id="waitlist-btn">
         <p>Join our waitlist</p>
       </div>
     </div>
     <div id="logo"></div>
   </div>
-  <div class="product">
-    <div class="product-0">
-        <div class="product-blurb">
-          <p>We are reimagining how kids spend their time with technology: a future where kids’ content is made personally for them — <i>by them</i>— through <span class="pbold">immersive interactive storytelling</span> creation tools and experiences. </p>
-          <div class="waitlist-input-container">
-            <input type="email" id="emailInput" name="email" placeholder="Enter email address" class="waitlist-input">
-            <div class="waitlist-btn" id="waitlistBtn">
-              <p>Join our waitlist</p>
-            </div>
-          </div>
+
+  <div class="waitlist-container">
+    <h3>MUSE REIMAGINES HOW KIDS SPEND THEIR TIME WITH TECHNOLOGY.</h3>
+    <div class="mockup-container">
+
+      <div class="mockup">
+        <h1>a future where kids’ content is made personally for them —<span class="hbold">by them</span>— through <span
+            class="hbold">immersive interactive storytelling</span> creation tools and experiences. </h1>
+      </div>
+      <div class="component-container">
+        <div class="components">
+          <img src="assets/components.svg" class="desktop">
+          <img src="assets/components-mobile.svg" class="mobile">
         </div>
-        <img src="assets/notepad.svg" alt="notepad" class="product-notepad">
+        <video class="adventure-video" autoplay muted loop src="assets/videos/adventure.mp4"></video>
+      </div>
     </div>
-    <div class="product-1">
+    <div class="product-blurb">
+      <h1>Come join us on the app store on June 15</h1>
+      <div class="waitlist-input-container">
+        <input type="email" name="email" placeholder="Email address" class="waitlist-input">
+        <div class="waitlist-btn-input">
+          <p>Join our waitlist</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product">
+
+    <div id="product-1">
       <h1>Build a habit of life-long reading and making, <span class="bold">in the age of AI</span></h1>
       <div class="product-info-container">
         <div class="product-info">
           <h2>86% of kids</h2>
           <p class="smaller">say their favorite books are the ones they picked out.</p>
           <h2 class="thinner">We’re going a step further: What if you could truly dream up any story you want?</h2>
-          <p>We take in kids’ typed or voice-transcribed ideas and craft them into engaging stories that <span class="pbold">never have to
-            end,</span> and that they’ll <span class="pbold">never want to put down.</span></p>
-        </div>
+          <p>We take in kids’ typed or voice-transcribed ideas and craft them into engaging stories that <span
+              class="pbold">never have to
+              end,</span> and that they’ll <span class="pbold">never want to put down.</span></p>
+        </div> 
         <div class="product-image">
           <video autoplay muted loop>
             <source src="assets/videos/voice.mp4" type="video/mp4">
@@ -92,12 +111,13 @@
         </div>
       </div>
     </div>
-    <div class="product-2">
+    <div id="product-2">
       <h1><span class="bold">Diverse</span> storytelling is the new norm. </h1>
       <div class="product-info-container">
         <div class="quote-container">
-          <h2>“Make the hero of the story an Asian American girl with a super sidekick, <span class="bold">like my 姥姥.</span> We are on the search
-            for our family’s long lost magical 饺子 recipe. ”</h2>
+          <h2>“Make the hero of the story an Asian American girl with a super sidekick, <span class="bold">like my
+              姥姥.</span> We are on the search
+            for our family’s long lost magical 饺子 recipe.”</h2>
           <div class="product-info">
             <p>The worlds imagined through Muse defy more than just the laws of physics, but also the types of
               characters, families, and challenges that dominated the media we grew up used to seeing. </p>
@@ -109,15 +129,15 @@
         </div>
       </div>
     </div>
-    <div class="product-3">
+    <div id="product-3">
       <h1>Healthy experiences with technology</h1>
-      <div class="product-info-container" style="flex-direction: row-reverse;">
+      <div class="product-info-container reverse">
 
         <div class="product-info">
           <p>Research-driven design helped us decide the best colors, typography, and layouts to craft the most
             comfortable and friendly iPad reading experience for a range of kids’ ages and reading levels. </p>
         </div>
-        <div class="product-image" style="margin-right: -24px;">
+        <div class="product-image" >
           <video autoplay muted loop>
             <source src="assets/videos/flipping.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -127,10 +147,10 @@
       </div>
       <div class="product-info-container">
 
-        <div class="product-info" style="position: relative; top: 60px;">
+        <div class="product-info" id="offset3">
           <h2>Read aloud features available for littler ones learning to read.  </h2>
         </div>
-        <div class="product-image" style=" margin-left: -48px; width: 35%; aspect-ratio: 2.2; box-shadow: none">
+        <div class="product-image small">
           <video autoplay muted loop>
             <source src="assets/videos/read.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -139,21 +159,46 @@
 
       </div>
     </div>
-    <div class="product-4">
-      <h1><span class="bold">Diverse</span> storytelling is the new norm. </h1>
+    <div id="product-4">
+      <h1><span class="bold">Digital literacy</span> in cutting-edge creative AI tools.  </h1>
       <div class="product-info-container">
-          <div class="product-info">
-            <h2>The future of learning is co-creation with generative AI.</h2>
-            <p>Start understanding how generative AI works and how to meaningfully play with it, through Muse’s carefully designed and regulated interfaces and environment.  </p>
-          </div>
+        <div class="product-info">
+          <h2>The future of learning is co-creation with generative AI.</h2>
+          <p>Start understanding how generative AI works and how to meaningfully play with it, through Muse’s carefully
+            designed and regulated interfaces and environment.  </p>
+        </div>
         <div class="product-image">
 
         </div>
       </div>
     </div>
+    
+  </div>
+  <div id="story">
+      <div class="story-headline">
+        <img src="assets/story-icon.svg">
+        <h1>Our Story</h1>
+      </div>
+      <p>We are three friends and recent graduates of Carnegie Mellon University, with degrees spanning Interaction
+        Design, Information Systems, Computer Science, Digital Humanities, and Human-Computer Interaction. With a
+        motivation to help humanity toward healthier and more valuable relationships with technology, we passionately
+        and carefully designed Muse — an app for kids to meaningfully engage with technology through active creativity,
+        worldbuilding, and immersive reading experiences. </p>
+      <img src="assets/long-profiles.svg">
+      <p><span class="michelle">Michelle</span> is from Ellicott City, Maryland; <span class="bryce">Bryce</span> from Los Altos, California; and <span class="emily">Emily</span> from Fremont, California.
+        We come from backgrounds in teaching, visual arts, working with public school systems, and most importantly,
+        working with kids. </p>
 
+      <p>Growing up in first-generation immigrant households, we know how the paths towards advanced literacy can be
+        challenging without robust support systems. Therefore, the belief in the value of fun and engaging books
+        accessible from a young age is one we hold personally. Our mission is to make Muse this support system for any
+        child; Muse is a personal storyteller, creative helping-hand, and knowledgable source of inspiration — all in
+        one.</p>
 
-
+      <b>More on why and how we are building Muse: <a href="https://emily-muse.medium.com/">read our blog!</a></b>
+      <b>Let’s chat! Send an email to <a href="mailto:hello@joinmuse.ai">hello@joinmuse.ai 📬</a></b>
+      </p>
+    </div>
 </body>
 
 </html>
