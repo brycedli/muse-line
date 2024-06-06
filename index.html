@@ -31,21 +31,13 @@
 
   <div id="hero">
     <h1 id="title">Every story starts with an idea. Try drawing a scribble here!</h1>
-    <div
-      style="position:absolute; top:0; left:0; width: 100%; height: 160px; background: linear-gradient(rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);">
-    </div>
-    <div
-      style="position:absolute; bottom:0; left:0; width: 100%; height: 160px; background: linear-gradient(0deg, rgba(253, 255, 248, 1) 25%, rgba(253, 255, 248, 0.00) 100%);">
-    </div>
-    <div
-      style="position:absolute; bottom:0; left:0; height: 100%; width: 160px; background: linear-gradient(90deg, rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);">
-    </div>
-    <div
-      style="position:absolute; bottom:0; right:0; height: 100%; width: 160px; background: linear-gradient(-90deg, rgba(253, 255, 248, 0.5) 25%, rgba(253, 255, 248, 0.00) 100%);">
-    </div>
+    <div class="fade-top"></div>
+    <div class="fade-bottom"></div>
+    <div class="fade-left"> </div>
+    <div class="fade-right"></div>
     <div id="sketch-holder">
       <img id="cards" src="assets/cards.svg">
-      <video id="gesture" autoplay muted loop>
+      <video id="gesture" autoplay muted loop playsinline>
         <source src="assets/videos/gesture.mp4" type="video/mp4">
       </video>
     </div>
@@ -108,7 +100,7 @@
               end,</span> and that they’ll <span class="pbold">never want to put down.</span></p>
         </div>
         <div class="product-image">
-          <video autoplay muted loop>
+          <video autoplay muted loop playsinline>
             <source src="assets/videos/voice.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -136,17 +128,23 @@
     <div id="product-3">
       <h1>Healthy experiences with technology</h1>
       <div class="product-info-container reverse">
-
-        <div class="product-info">
-          <p>Research-driven design helped us decide the best colors, typography, and layouts to craft the most
-            comfortable and friendly iPad reading experience for a range of kids’ ages and reading levels. </p>
-            <!-- <div class="background" id="background-3"></div> -->
+        <div id="product-3-info-holder">
+          <div  class="background" id="background-3"></div>
+          <div class="product-info">
+            
+            <p>Research-driven design helped us decide the best colors, typography, and layouts to craft the most
+              comfortable and friendly iPad reading experience for a range of kids’ ages and reading levels. </p>
+              
+          </div>
         </div>
+        
         <div class="product-image">
-          <video autoplay muted loop>
+          
+          <video autoplay muted loop playsinline>
             <source src="assets/videos/flipping.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          
         </div>
 
       </div>
@@ -156,7 +154,7 @@
           <h2>Read aloud features available for littler ones learning to read.  </h2>
         </div>
         <div class="product-image small">
-          <video autoplay muted loop>
+          <video autoplay muted loop playsinline>
             <source src="assets/videos/read.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -173,7 +171,7 @@
             designed and regulated interfaces and environment.  </p>
         </div>
         <div class="product-image">
-
+          <div class="background" id="background-4"></div>
         </div>
       </div>
     </div>
