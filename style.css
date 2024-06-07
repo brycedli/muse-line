@@ -1004,17 +1004,17 @@ h2 {
     touch-action: none;
     aspect-ratio: 1;
     width: 100%;
-
     overflow: hidden;
     position: relative;
-    margin-top: 48px;
+    margin-top: 52px;
     z-index: 4;
   }
 
   #hero {
     display: flex;
     box-sizing: border-box;
-    height: 65%;
+    /* height: 65%; */
+    height: auto;
     padding: 36px;
 
     flex-direction: column;
