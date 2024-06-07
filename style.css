@@ -777,7 +777,7 @@ canvas {
   /* width: 400px; */
   border-radius: 16px;
   background: #FFF9F8;
-  box-shadow: 0px 4px 10px 0px rgba(0, 150, 125, 0.1);
+  box-shadow: 0px 4px 10px 0px rgba(147, 0, 71, 0.10);
 }
 
 #product-2 * .product-image {
@@ -811,7 +811,7 @@ h2 {
   width: 300px;
   border-radius: 16px;
   background: #FFFFEA;
-  box-shadow: 0px 4px 10px 0px rgba(255, 138, 0, 0.1);
+  box-shadow: 0px 4px 10px 0px rgba(27, 0, 125, 0.10);;
 
 }
 
@@ -874,7 +874,7 @@ h2 {
 
   border-radius: 16px;
   background: #f1ffca;
-  box-shadow: 0px 4px 10px 0px rgba(255, 138, 0, 0.1);
+  box-shadow: 0px 4px 10px 0px rgba(0, 98, 82, 0.10);;
 }
 
 #product-4 * .product-image {
