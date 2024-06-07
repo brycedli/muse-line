@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
   const svgPaths = [
-    'assets/logos/muse0.svg',
-    'assets/logos/muse1.svg',
-    'assets/logos/muse2.svg',
-    'assets/logos/muse3.svg',
-    'assets/logos/muse4.svg',
-    'assets/logos/muse5.svg',
-    'assets/logos/muse6.svg',
-    'assets/logos/muse7.svg',
+    'assets/logos/muse0.png',
+    'assets/logos/muse1.png',
+    'assets/logos/muse2.png',
+    'assets/logos/muse3.png',
+    'assets/logos/muse4.png',
+    'assets/logos/muse5.png',
+    'assets/logos/muse6.png',
+    'assets/logos/muse7.png',
   ];
 
   let currentIndex = 0;
