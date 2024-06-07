@@ -454,7 +454,7 @@ canvas {
 
 .mockup h1 {
   margin-left: 20px;
-    margin-right: 20px;
+  margin-right: 20px;
   flex: 1 0 0;
   color: #FFF;
   text-align: center;
@@ -811,7 +811,8 @@ h2 {
   width: 300px;
   border-radius: 16px;
   background: #FFFFEA;
-  box-shadow: 0px 4px 10px 0px rgba(27, 0, 125, 0.10);;
+  box-shadow: 0px 4px 10px 0px rgba(27, 0, 125, 0.10);
+  ;
 
 }
 
@@ -874,7 +875,8 @@ h2 {
 
   border-radius: 16px;
   background: #f1ffca;
-  box-shadow: 0px 4px 10px 0px rgba(0, 98, 82, 0.10);;
+  box-shadow: 0px 4px 10px 0px rgba(0, 98, 82, 0.10);
+  ;
 }
 
 #product-4 * .product-image {
@@ -988,6 +990,143 @@ h2 {
     display: block;
   }
 
+  #logo {
+    left: 50%;
+    top: -12px;
+    transform: translateX(-50%) scale(75%);
+  }
+
+  #logo-mobile {
+    position: fixed;
+    left: 36px;
+    z-index: 10;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%) scale(75%);
+    display: flex;
+    width: 152px;
+    height: 40px;
+    padding: 12px 24px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    border-radius: 200px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.10);
+    -webkit-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+  }
+
+  #logo-mobile p {
+    font-size: 24px;
+    font-variation-settings: 'wght' 500;
+  }
+
+  .default {
+    background: #F7EAFF;
+  }
+
+  .default-logo {
+    display: none;
+  }
+
+  #dropdown {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    background: #5A0046;
+    overflow: hidden;
+    transition: opacity 0.1s linear;
+  }
+
+  #dropdown p {
+    color: white;
+  }
+
+  #dropdown > div {
+    display: flex;
+    height: 52px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+    border: 1px solid rgba(247, 234, 255, 0.10);
+    opacity: 1;
+    
+  }
+
+
+  #dropdown > div:hover {
+    background: #95307E;
+  }
+
+  .default>.default-logo {
+    display: block;
+  }
+
+  .default>.logo-mobile-img {
+    background-image: url("assets/chevron-purple.svg");
+  }
+
+  #logo {
+    position: static;
+    transform: none;
+    /* height: 100%; */
+
+  }
+
+  #logo>img {
+    height: 200%;
+  }
+
+  .default>p {
+    display: none;
+  }
+
+  .green {
+    background: #CFEF17;
+    color: #00967D;
+  }
+
+  .green>.logo-mobile-img {
+    background-image: url("assets/chevron-green.svg");
+  }
+
+  .pink {
+    background: var(--pinkk, #FF4F99);
+    color: rgba(247, 234, 255, 1);
+  }
+
+  .pink>.logo-mobile-img {
+    background-image: url("assets/chevron-pink.svg");
+  }
+
+  .blue {
+    background: #BCDAFF;
+
+    color: rgba(22, 10, 155, 1)
+  }
+
+  .blue>.logo-mobile-img {
+    background-image: url("assets/chevron-blue.svg");
+  }
+
+  .logo-mobile-img {
+    width: 24px;
+    height: 14px;
+    background-size: cover;
+    /* flex-shrink: 0; */
+    /* fill: #F7EAFF; */
+  }
+
   #title {
     position: absolute;
     left: 12px;
@@ -1068,11 +1207,7 @@ h2 {
     width: 80px;
   }
 
-  #logo {
-    left: 50%;
-    top: -12px;
-    transform: translateX(-50%) scale(75%);
-  }
+
 
   .button-row {
     display: none;

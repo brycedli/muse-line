@@ -53,7 +53,7 @@
   <script src="polyline.js"></script>
   <script src="logo.js"></script>
   <script src="sketch.js"></script>
-
+  <div id="scroll-top" height="1px"></div>
   <div id="hero">
     <h1 class="desktop" id="title">Every story starts with an idea. Try drawing a scribble here!</h1>
     <div class="fade-top"></div>
@@ -83,10 +83,20 @@
       </div>
 
     </div>
-    <div id="logo"></div>
+    <div id="logo" class="desktop"></div>
+    <div id="logo-mobile" class="mobile default">
+      <div id="logo" class="default-logo"></div>
+      <p>Waitlist</p>
+      <class class="logo-mobile-img"></class>
+      <div id="dropdown" class="hidden">
+        <div id="waitlist-btn-mobile"><p>Waitlist</p></div>
+        <div id="product-btn-mobile"><p>Product</p></div>
+        <div id="story-btn-mobile"><p>Our story</p></div>
+      </div>
+    </div>
   </div>
-  <div id="scroll-waitlist"></div>
-  <div class="waitlist-container">
+  <!-- <div id="scroll-waitlist" height="1px"></div> -->
+  <div id="scroll-waitlist" class="waitlist-container">
     <h3>MUSE REIMAGINES HOW KIDS SPEND THEIR TIME WITH TECHNOLOGY.</h3>
     <div class="mockup-container">
 
@@ -112,8 +122,8 @@
       </div>
     </div>
   </div>
-  <div id="scroll-product"></div>
-  <div class="product">
+  <!-- <div id="scroll-product" height="1px"></div> -->
+  <div id="scroll-product" class="product">
 
     <div id="product-1">
 
@@ -206,7 +216,7 @@
     </div>
 
   </div>
-  <div id="scroll-story"></div>
+  <!-- <div id="scroll-story" height="1px"></div> -->
   <div id="story">
     <div class="story-headline">
       <img src="assets/story-icon.svg">
