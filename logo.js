@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('product-btn').addEventListener('click', function () {
-        document.getElementById('scroll-product').scrollIntoView({ behavior: 'smooth' });
+        console.log('clicked product');
+        document.getElementById('scroll-product').scrollIntoView({ behavior: 'smooth' , inline: 'center', block: 'start'});
     });
     document.getElementById('story-btn').addEventListener('click', function () {
-        document.getElementById('scroll-story').scrollIntoView({ behavior: 'smooth' });
+        console.log('clicked story');
+        document.getElementById('scroll-story').scrollIntoView({ behavior: 'smooth' , inline: 'center', block: 'start'});
     });
     document.getElementById('waitlist-btn').addEventListener('click', function () {
-        document.getElementById('scroll-waitlist').scrollIntoView({ behavior: 'smooth' });
+        console.log('clicked waitlist');
+        document.getElementById('scroll-waitlist').scrollIntoView({ behavior: 'smooth',inline: 'center', block: 'start'});
     });
 
     const svgPaths = [

@@ -9,7 +9,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Curve</title>
+  <title>Muse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
@@ -30,17 +30,21 @@
   <script src="sketch.js"></script>
 
   <div id="hero">
-    <h1 id="title">Every story starts with an idea. Try drawing a scribble here!</h1>
+    <h1 class="desktop" id="title">Every story starts with an idea. Try drawing a scribble here!</h1>
     <div class="fade-top"></div>
     <div class="fade-bottom"></div>
     <div class="fade-left"> </div>
     <div class="fade-right"></div>
+    <img id="cards" class="desktop" src="assets/cards.svg">
+    <img id="cards-mobile" class="mobile" src="assets/cards-mobile.svg">
     <div id="sketch-holder">
-      <img id="cards" src="assets/cards.svg">
+      <div id="post-it"></div>
+      <h1 class="mobile" id="title">Every story starts with an idea. Try drawing a scribble here!</h1>
       <video id="gesture" autoplay muted loop playsinline>
         <source src="assets/videos/gesture.mp4" type="video/mp4">
       </video>
     </div>
+    
     <h1 id="tagline" class="hidden">Putting thoughts into words. Creative AI tools designed just for kids.</h1>
     <div class="button-row">
       <div id="waitlist-btn">

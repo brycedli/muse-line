@@ -127,7 +127,6 @@ function draw() {
     // background(0);
     clear();
     textFont(font)
-
     let lerpPolyline = new ofPolyline();
     if (drawingState == "animate" && clickedTime != -1 && drawPolyline.points.length > minPoints) {
         for (let i = 0; i < drawPolyline.bezierResamples.length; i++) {
@@ -148,9 +147,13 @@ function draw() {
     }
 
     noFill();
+    if (windowWidth < 600) {
+        strokeWeight(2);
+    }else{
+        strokeWeight(4);
+    }
 
-
-    strokeWeight(4);
+    
     stroke("#FF4F99");
     if (drawingState == "animate") {
         lerpPolyline.calculateApprox(5);
@@ -179,7 +182,10 @@ function draw() {
 
 
 function mousePressed() {
-
+    let parent = document.getElementById("sketch-holder").getBoundingClientRect();
+    if (mouseX < 0 || mouseX > parent.width || mouseY < 0 || mouseY > parent.height) {
+        return
+    }
     current = current + 1;
     regenerateSourceCurve(current);
 
@@ -194,7 +200,10 @@ function mousePressed() {
 }
 
 function mouseDragged() {
-
+    let parent = document.getElementById("sketch-holder").getBoundingClientRect();
+    if (mouseX < 0 || mouseX > parent.width || mouseY < 0 || mouseY > parent.height) {
+        return
+    }
     drawPolyline.calculateApprox(5);
     drawPolyline.calculateBeziers(drawPolyline.approx);
     drawPolyline.recalculateBezierLengths();
@@ -205,15 +214,17 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-
-    if (drawPolyline.points.length > minPoints) {
-        drawPolyline.calculateApprox(width / 1000);
-        drawPolyline.calculateBeziers(drawPolyline.approx);
-        drawPolyline.recalculateBezierLengths();
-        drawPolyline.calculateBezierResamples(count);
-        clickedTime = millis();
-        drawingState = "animate";
+    if (drawingState == "draw") {
+        if (drawPolyline.points.length > minPoints) {
+            drawPolyline.calculateApprox(width / 1000);
+            drawPolyline.calculateBeziers(drawPolyline.approx);
+            drawPolyline.recalculateBezierLengths();
+            drawPolyline.calculateBezierResamples(count);
+            clickedTime = millis();
+            drawingState = "animate";
+        }
     }
+    
     rotateSVG();
 
     
@@ -266,6 +277,7 @@ function parsePathData(d) {
 }
 
 function windowResized() { 
+    let parent = document.getElementById("sketch-holder").getBoundingClientRect();
     regenerateSourceCurve(current);
-    resizeCanvas(windowWidth, windowHeight); 
+    resizeCanvas(parent.width, parent.height); 
 }
