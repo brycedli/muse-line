@@ -399,7 +399,7 @@ canvas {
   overflow: hidden;
 
   display: flex;
-  gap: 20px;
+  gap: 40px;
   flex-direction: column;
   align-items: start;
   justify-items: center;
@@ -732,17 +732,14 @@ canvas {
 
 
 
-#product-2 p {
-  color: #FF644F;
+#product-2 p, #product-2 h1 {
+  color: #7E64DD;
 }
 
 #product-2 .product-info-container {
   flex-direction: row-reverse;
 }
 
-#product-2 h1 {
-  color: #FF644F;
-}
 
 .quote-container {
   display: flex;
@@ -757,7 +754,7 @@ canvas {
   /* width: 60%; */
   margin-left: 60px;
   margin-right: -40px;
-  color: #E25D47;
+  color: #7E64DD;
 
   font-family: "IBM Plex Sans";
   font-size: 24px;
@@ -776,7 +773,7 @@ canvas {
 #product-2 .product-info {
   /* width: 400px; */
   border-radius: 16px;
-  background: #FFF9F8;
+  background: rgba(254, 248, 255, 1);
   box-shadow: 0px 4px 10px 0px rgba(147, 0, 71, 0.10);
 }
 
@@ -793,16 +790,15 @@ canvas {
   margin-right: -24px;
 }
 
-#product-3 h1,
-h2 {
-  color: #7E64DD;
+#product-3 h1, h2 {
+  color: #FF644F;
 }
 
 
 #product-3 p {
 
   font-variation-settings: 'wght' 400;
-  color: #7E64DD;
+  color: #FF644F;
 }
 
 #product-3 .product-info {
@@ -810,9 +806,8 @@ h2 {
   z-index: 2;
   width: 300px;
   border-radius: 16px;
-  background: #FFFFEA;
+  background: #FFF9F8;
   box-shadow: 0px 4px 10px 0px rgba(27, 0, 125, 0.10);
-  ;
 
 }
 
@@ -1340,6 +1335,7 @@ h2 {
 
   #product-1 .product-image {
     margin-left: 0;
+    margin-top: -40px;
   }
 
   #product-2 .product-info {
@@ -1385,24 +1381,25 @@ h2 {
 
   }
 
-  #background-2 {
-    background: linear-gradient(180deg, #FDFFF8 0%, #FFE3E8 41.59%, #FDFFF8 93.48%);
+  #background-3 {
+    background: linear-gradient(180deg, rgba(255, 227, 232, 0) 0%, rgba(255, 227, 232, 1) 41.59%, rgba(255, 227, 232, 0) 100%);
   }
 
-  #background-3 {
-    background: linear-gradient(180deg, #FDFFF8 0%, #E7E0FF 44%, #FDFFF8 93.48%);
+  #background-2 {
+    background: linear-gradient(180deg, rgba(231, 224, 255, 0) 0%, rgba(231, 224, 255, 1) 44%, rgba(231, 224, 255, 0)100%);
     opacity: 0.6;
-
+    
     height: 150%;
   }
 
   #background-4 {
     top: 80%;
     height: 150%;
-    background: linear-gradient(180deg, #FDFFF8 0%, #EEFFF2 44%, #FDFFF8 93.48%);
+    background: linear-gradient(180deg, rgba(238, 255, 242, 0) 0%, rgba(238, 255, 242, 1) 44%, rgba(238, 255, 242, 0) 100%);
   }
 
-  #product-3-info-holder {
+  #product-3 .product-image {
+    z-index: -1;
     position: relative;
   }
 
