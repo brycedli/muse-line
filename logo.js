@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+    document.body.addEventListener('click', function () {
+        rotateSVG();
+    })
     document.getElementById('logo-mobile').addEventListener('click', function () {
         console.log('clicked');
         if (document.getElementById('dropdown').className == "hidden") {
@@ -13,13 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById(buttonId).addEventListener('click', function () {
             // document.getElementById('dropdown').className += "hidden";
             console.log(`clicked ${buttonId}`);
-            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'start' });
+
+            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     }
 
     const buttons = [
         { buttonId: 'product-btn', targetId: 'scroll-product', className: 'mobile blue', label: 'Product' },
-        { buttonId: 'story-btn', targetId: 'story', className: 'mobile green', label: 'Story' },
+        { buttonId: 'story-btn', targetId: 'scroll-story', className: 'mobile green', label: 'Story' },
         { buttonId: 'waitlist-btn', targetId: 'scroll-waitlist', className: 'mobile pink', label: 'Waitlist' },
     ];
 
@@ -67,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         threshold: 0 // Adjust the threshold as needed
     });
 
-    topObserver.observe(document.getElementById('hero'));
+    topObserver.observe(document.getElementById('scroll-top'));
 
 
     // const checkPosition = () => {
