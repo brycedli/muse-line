@@ -780,6 +780,18 @@ canvas {
 
 }
 
+#product-3 *.product-image-2 {
+  flex: 1;
+  width: 100%;
+  aspect-ratio: 1.6;
+  flex-shrink: 0;
+  transform: rotate(-1.5deg);
+
+  background: rgba(231, 242, 255, 0.5);
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  margin-left: 20px;
+}
 
 #story {
   /* width: 100%; */
@@ -1205,11 +1217,21 @@ canvas {
     position: relative;
   }
 
+  #product-3 .product-image-2 {
+    /* margin-bottom: 20px; */
+    margin-right: 0;
+    margin-left: 0;
+    /* transform: none; */
+    position: relative;
+  }
+
   
   #product-3 .product-image {
     z-index: -1;
     position: relative;
-    margin-left: 0;
+    margin-bottom: -16px;
+    margin-left: 20;
+    margin-right: 20;
   }
 
   #product-3 .product-info-container {
